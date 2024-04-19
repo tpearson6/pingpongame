@@ -24,6 +24,31 @@ public class Ball {
         this.size = size;
     }
 
+    //speed increase for difficulty increase
+    static final int MAX_SPEED = 16;
+
+    public void increaseSpeed() {
+        // make sure current speed is less than max speed before incrementing
+        if (speed < MAX_SPEED) {
+            //increase the speed by two
+            speed+=2;
+
+            //updates cy and cx with the new speed
+            if(cx > 0){
+                cx = speed;
+            }
+            else if(cx < 0){
+                cx = speed * -1;
+            }
+            if(cy > 0){
+                cy = speed;
+            }
+            else if(cy < 0){
+                cy = speed * -1;
+            }
+        }
+    }
+
     public void paint(Graphics g){
         //sets brush color to the ball color
         g.setColor(color);
@@ -51,12 +76,7 @@ public class Ball {
             reverseY();
         }
 
-        // if x value is at left or right side
-        if (x < 0) {
-            reverseX();
-        } else if (x > 640 - size) {
-            reverseX();
-        }
+        //removed code that makes ball bounce off left and right sides
 
     }
 
@@ -80,9 +100,31 @@ public class Ball {
 
     public int getSize() {
         //method used for collision with paddles
-        throw new UnsupportedOperationException("Unimplemented method 'getSize'");
+        return size;
     }
 
+    //setters for x,y,cx,cy and speed
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public void setCx(int cx) {
+        this.cx = cx;
+    }
+
+    public void setCy(int cy) {
+        this.cy = cy;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    
 }
 
 

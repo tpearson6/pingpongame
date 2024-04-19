@@ -56,7 +56,7 @@ public class Paddles {
         if(o.getX() > (x - o.getSize()) && o.getX() < rightX){
         //check if Ball is between the y values
         if (o.getY() > y && o.getY() < bottomY) {
-            // if we get here, we know the ball and the paddle have collided
+            //if we get here, we know the ball and the paddle have collided
             return true;
         }
     }
